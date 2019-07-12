@@ -16,7 +16,22 @@
     <link rel="stylesheet" href="../css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
+  <style>
+    .hide{
+      display: none;
+    }
+    .show{
+      width: 30px;
+      height: 30px;
+      background-color: green;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      display: block;
+    }
+  </style>
+  </head>
 <body>
     <div class="wrapper">
             <div class="row">
@@ -59,6 +74,9 @@
                     </div>
                   </div>
     </div>
+    <div id="top" class="hide" onclick="goToTop()">
+      top
+    </div>
 <script src="../js/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../js/bootstrap.bundle.min.js"></script>
@@ -67,7 +85,21 @@
 <!-- Toastr -->
 <script src="../js/toastr.min.js"></script>
 <!-- AdminLTE App -->
-<script src="..//js/adminlte.min.js"></script>
+<script src="../js/adminlte.min.js"></script>
 <script src="../js/crud.js"></script>
+<script>
+  $(window).scroll(function(){
+      if ($(window).scrollTop() > 150){
+        $('#top').addClass('show');
+        $('#top').removeClass('hide')
+      }else{
+        $('#top').addClass('hide');
+        $('#top').removeClass('show')
+      }
+  })
+  function goToTop(){
+    $(window).scrollTop(0)
+  }
+</script>
 </body>
 </html>
